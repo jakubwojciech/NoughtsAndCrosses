@@ -26,6 +26,10 @@ namespace NoughtsAndCrosses
 		/// 
 		/// GameController - which is flow controller. This controller contains all objects and manage them to make progress
 		/// in game.
+		/// 
+		/// Thank you
+		/// Jakub Wojciechowski
+		/// 
 		/// </summary>
 		/// <param name="args"></param>
 		static void Main(string[] args)
@@ -40,16 +44,18 @@ namespace NoughtsAndCrosses
 			do
 			{
 				Console.WriteLine("Step {0}", stepsCounter++);
+				
 				gameController.LetToMakeNextMove();
+
 				Console.Write(gameController.PrintCurrentBoard());
 				Console.WriteLine();
 				
-				if (gameController.IsWin(gameController.PreviuosMoveBot.Signature))
+				if (gameController.IsWin(gameController.LastMoveBot.Signature))
 				{
 					gameOver = true;
-					Console.WriteLine(String.Format("WE HAVE A WINNER: {0} Won", gameController.PreviuosMoveBot.Signature));
+					Console.WriteLine(String.Format("WE HAVE A WINNER: {0} Won", gameController.LastMoveBot.Signature));
 				}
-				if (gameController.HowManyMovesLeft() == 0 && !gameController.IsWin(gameController.PreviuosMoveBot.Signature))
+				if (gameController.HowManyMovesLeft() == 0 && !gameController.IsWin(gameController.LastMoveBot.Signature))
 				{
 					gameOver = true;
 					Console.WriteLine("IT IS A DRAW !");

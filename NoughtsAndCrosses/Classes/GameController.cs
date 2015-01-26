@@ -13,7 +13,7 @@ namespace NoughtsAndCrosses.Classes
 		/// <summary>
 		/// Bot which made previus move
 		/// </summary>
-		public IBot PreviuosMoveBot { get; private set; }
+		public IBot LastMoveBot { get; private set; }
 
 		public GameController(IBoard board, IBot bot1, IBot bot2)
 		{
@@ -47,15 +47,15 @@ namespace NoughtsAndCrosses.Classes
 		/// </summary>
 		public void LetToMakeNextMove()
 		{
-			if (PreviuosMoveBot == null || PreviuosMoveBot == bot2)
+			if (LastMoveBot == null || LastMoveBot == bot2)
 			{
 				bot1.MakeMove();
-				PreviuosMoveBot = bot1;
+				LastMoveBot = bot1;
 			}
 			else
 			{
 				bot2.MakeMove();
-				PreviuosMoveBot = bot2;
+				LastMoveBot = bot2;
 			}
 		}
 
